@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link rel="Stylesheet" href="css/styles.css" type="text/css">
+		<style>
+		html, body{
+			height: 100%;
+		}
+		body{
+			display: table;
+			width: 100%;
+			text-align: center;
+			overflow: hidden;
+		}
+		#directTitle {
+			height: 200px;
+			color: white;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 60px;
+			font-weight: bold;
+			text-shadow: 3px 3px rgba(80,80,80,1);
+			display: table-cell;
+			vertical-align: middle;
+		}
+		#loader1, #loader2{
+			position: absolute;
+			height: 34px;
+			width: 34px;
+			border: 3px solid black;
+			border-radius: 5px;
+			z-index: 20;
+			visibility: visible;
+		}
+		
+		#loader1{
+			top: 554px;
+			left: 799px;
+			background-color: rgba(255,255,255,1);
+			animation: loaderSpin1 5s infinite;
+		}
+		
+		#loader2{
+			top: 594px;
+			left: 838px;
+			background-color: rgba(255,100,100,1);
+			animation: loaderSpin2 5s infinite;
+		}
+		
+		@keyframes loaderSpin1 {
+			0% {background-color: rgba(255,255,255,1); top: 554px; left: 799px;}
+			25% {background-color: rgba(120,60,180,1); top: 554px; left: 838px;}
+			50% {background-color: rgba(255,255,255,1); top: 594px; left: 838px;}
+			75% {background-color: rgba(120,60,180,1); top: 594px; left: 799px;}
+			100% {background-color: rgba(255,255,255,1); top: 554px; left: 799px;}
+		}
+		
+		@keyframes loaderSpin2 {
+			0% {background-color: rgba(120,60,180,1); top: 594px; left: 838px;}
+			25% {background-color: rgba(255,255,255,1); top: 594px; left: 799px;}
+			50% {background-color: rgba(120,60,180,1); top: 554px; left: 799px;}
+			75% {background-color: rgba(255,255,255,1); top: 554px; left: 838px;}
+			100% {background-color: rgba(120,60,180,1); top: 594px; left: 838px;}
+		}
+		</style>
+		<script>
+			function redirectBack() {
+				setTimeout(function() {
+					window.location.replace("http://localhost/PC_db/index.php");
+				}, 4000);
+			}
+		</script>
+	</head>
+	<body>
+	<body onload="redirectBack()">
+	<div id="directTitle">Product added succesfully, Returning to main page...</div>
+	<div id="loader1"></div>
+	<div id="loader2"></div>
+	</body>
+</html>

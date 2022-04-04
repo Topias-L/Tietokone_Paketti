@@ -1,0 +1,270 @@
+/*
+body > *{
+	outline: 1px solid #f00;
+}
+*/
+
+body{
+	background-image: url(../page_BG.png);
+}
+
+::-webkit-scrollbar {
+	opacity: 1;
+}
+
+#title{
+	margin-top: 30px;
+	margin-left: 20px;
+	width: 700px;
+	
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 50px;
+	font-weight: bold;
+	
+	text-shadow: 3px 3px rgba(80,80,80,1);
+}
+
+#cr{
+	position: absolute;
+	top: 880px;
+	
+	color: gray;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Main tables CSS attributes */
+
+#tableBG {
+	position: absolute;
+	width: 900px;
+	height: auto;
+	left: 750px;
+	
+	max-height: 800px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	
+	background-color: rgba(220,220,220,1);
+	border: 6px solid rgba(50,50,50,1);
+	border-radius: 30px;
+	
+	box-shadow: 0px 0px 20px black;
+	
+	z-index: -1;
+}
+
+.tuoteTable {
+	padding: 20px;
+	top: 81px;
+	width: 900px;
+	border: none !important;
+}
+
+table, th, tr, td{
+	border: 1px solid black;
+	color: black;
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.ctr {
+	text-align: center;
+}
+
+.pad {
+	padding-left: 4px;
+}
+
+/* Product search CSS attributes */
+
+#searchHelp, #searchTitle{
+	display: block;
+	margin-left: 15px;
+	clear: both;
+	
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#searchBG {
+	position: absolute;
+	top: 120px;
+	left: 15px;
+	width: 650px;
+	height: 165px;
+	
+	background-color: rgba(220,220,220,1);
+	border: 6px solid rgba(50,50,50,1);
+	border-radius: 20px;
+	
+	box-shadow: 0px 0px 20px black;
+	
+	z-index: -1;
+}
+
+#searchTitle{
+	width: 400px;
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+#searchHelp{
+	margin-top: 10px;
+}
+
+.searchForm{
+	margin-top: 10px;
+}
+
+form{
+	position: relative;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+/* Edit + Delete CSS attributes */
+
+#editBG {
+	position: absolute;
+	top: 310px;
+	left: 15px;
+	width: 650px;
+	height: 165px;
+	
+	background-color: rgba(220,220,220,1);
+	border: 6px solid rgba(50,50,50,1);
+	border-radius: 20px;
+	
+	box-shadow: 0px 0px 20px black;
+	
+	z-index: -1;
+}
+
+#warning{
+	margin-top: 15px;
+	margin-left: 15px;
+	color: rgba(120,60,180,1);
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#editHelp, #editTitle{
+	display: block;
+	margin-left: 15px;
+	clear: both;
+	
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#editTitle{
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+#editHelp{
+	margin-top: 15px;
+}
+
+/* Edit + Delete Buttons attributes */
+
+.editBTN, .delBTN {
+	position: relative;
+	height: 30px;
+	width: 30px;
+	display: block;
+	
+	border: none;
+	cursor: pointer;
+	transition: 0.05s ease-in-out;
+	
+	color: white;
+	line-height: 10px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.editBTN {
+	background-color: rgba(120,60,180,1);
+}
+
+.editBTN:hover {
+	background-color: rgba(140,80,200,1);
+}
+
+.editBTN:active {
+	background-color: rgba(110,50,170,1);
+}
+
+.delBTN {
+	background-color: rgba(150,30,30,1);
+}
+
+.delBTN:hover {
+	background-color: rgba(180,70,70,1);
+}
+
+.delBTN:active {
+	background-color: rgba(120,40,40,1);
+}
+
+/* Product adding CSS attributes */
+
+#addBG {
+	position: absolute;
+	top: 500px;
+	left: 15px;
+	width: 650px;
+	height: 335px;
+	
+	background-color: rgba(220,220,220,1);
+	border: 6px solid rgba(50,50,50,1);
+	border-radius: 20px;
+	
+	box-shadow: 0px 0px 20px black;
+	
+	z-index: -1;
+}
+
+#addHelp, #addTitle{
+	display: block;
+	margin-left: 15px;
+	clear: both;
+	
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#addTitle{
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+#addHelp{
+	margin-top: 10px;
+}
+
+#addCategory{
+	position: relative;
+	margin-top: 20px;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+#productInfo {
+	width: 300px;
+	margin-top: 10px;
+	
+	white-space: nowrap;
+	font-family: 'Montserrat', sans-serif;
+	color: red;
+}
+
+input[type=text] {
+	width: 110px;
+}
+
+input[type=submit] {
+	margin-top: 10px;
+}
