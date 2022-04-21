@@ -7,22 +7,25 @@
 		html, body{
 			height: 100%;
 		}
+		
 		body{
 			display: table;
 			width: 100%;
 			text-align: center;
 			overflow: hidden;
 		}
+		
 		#directTitle {
 			height: 200px;
 			color: white;
 			font-family: 'Montserrat', sans-serif;
 			font-size: 60px;
 			font-weight: bold;
-			text-shadow: 3px 3px rgba(80,80,80,1);
+			text-shadow: 3px 3px rgba(50,50,50,1);
 			display: table-cell;
 			vertical-align: middle;
 		}
+		
 		#loader1, #loader2{
 			position: absolute;
 			height: 34px;
@@ -37,14 +40,14 @@
 			top: 554px;
 			left: 799px;
 			background-color: rgba(255,255,255,1);
-			animation: loaderSpin1 5s infinite;
+			animation: loaderSpin1 3s infinite;
 		}
 		
 		#loader2{
 			top: 594px;
 			left: 838px;
 			background-color: rgba(255,100,100,1);
-			animation: loaderSpin2 5s infinite;
+			animation: loaderSpin2 3s infinite;
 		}
 		
 		@keyframes loaderSpin1 {

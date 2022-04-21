@@ -155,7 +155,7 @@ if ($result->num_rows > 0) {
 // Adding edit + delete buttons
 		
 		$buffer .= '<td style="width:30px"><button type="button" class="editBTN '. $counter . '">🛠</button></td>';
-		$buffer .= '<td style="width:30px"><button type="button" onClick = "deleteProduct('. $counter .')" class="delBTN '. $counter . '">🗙</button></td>';
+		$buffer .= '<td style="width:30px"><button type="button" onClick = "deleteConfirmation('. $counter .')" class="delBTN '. $counter . '">🗙</button></td>';
 		$buffer .= "</tr>";
 		$counter++;
 	}
@@ -395,7 +395,11 @@ function CASEAddProduct() {
 	}
 }
 
-function deleteRow() {
+if(isset($_POST['delConfirm'])) {
+	deleteProduct();
+}
+
+function deleteProduct() {
 	
 }
 
@@ -420,7 +424,7 @@ $conn->close();
 		
 		<script>
 			
-		// Function for adding products
+		// Function for Adding products
 			
 			function addProduct(what) {
 				if (!what || what == null) {
@@ -646,11 +650,27 @@ $conn->close();
 				document.getElementById("productInfo").innerHTML = buffer;
 			}
 			
-		// Function for deleting products
+		// Functions for Deleting products
 			
-			function deleteProduct(rowNum) {
-				var rowSearch = document.getElementById("row" + rowNum).firstChild.innerHTML;
-				console.log(rowSearch);
+			function deleteConfirmation(rowNum) {
+				document.getElementById("delWarnBG").style.display = "initial";
+				sessionStorage.setItem('rowNum', rowNum);
+			}
+			
+			function deleteCancel() {
+				document.getElementById("delWarnBG").style.display = "none";
+				console.log("Product deletion cancelled.");
+			}
+			
+			function deleteConfirm() {
+				var sessionRowNum = sessionStorage.getItem('rowNum')
+				
+				document.getElementById("delWarnBG").style.display = "none";
+				
+				var rowProdID = document.getElementById("row" + sessionRowNum).firstChild.innerHTML;  + rowProdID
+				console.log("Row number: " + sessionRowNum + "\nRows product ID: " + rowProdID);
+
+				console.log("Product deleted.");
 			}
 			
 		</script>
@@ -660,8 +680,12 @@ $conn->close();
 	</head>
 	<body>
 		<body onLoad="addProduct()">
+		<div id="navBar">
+			<div id="title">Computer Database App</div>
+			<button type="button" onClick="" id="productSide">Products</button>
+			<button type="button" onClick="" id="packageSide">PC Packages</button>
+		</div>
 		<div id="tableBG"><?php echo($buffer); ?></div>
-		<div id="title">Computer Database App</div>
 		<div id="cr">© Topias Laitinen 2022</div>
 		
 <!-- HTML related to product search -->
@@ -694,6 +718,18 @@ $conn->close();
 			<div id="editHelp">The buttons for this function have been implemented,-
 			<br> but the buttons themselves dont have any functions yet.
 			<br>The plan is to implement these functions in the near future.</div>
+		</div>
+		
+		<div id="delWarnBG">
+			<div id="delWarnContainer">
+				<div id="delWarnTXT1">WARNING</div>
+				<div id="delWarnTXT2">Are you sure that you wish to delete your chosen product?
+				<br>If you press delete, the product will be deleted from the database forever.</div>
+				<button type="button" onClick="deleteCancel()" id="delCancel">No, Go back</button>
+				<form name="deleteForm" method="POST" action="index.php">
+					<button type="button" onClick="deleteConfirm()" id="delConfirm">Yes, Delete product</button>
+				</form>
+			</div>
 		</div>
 		
 <!-- HTML related to adding products -->
