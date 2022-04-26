@@ -415,7 +415,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="Stylesheet" href="css/styles.css" type="text/css">
+		<link rel="Stylesheet" href="css/stylesComps.css" type="text/css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
@@ -673,6 +673,10 @@ $conn->close();
 				console.log("Product deleted.");
 			}
 			
+			function redirPackage() {
+				window.location.replace('http://localhost/PC_db/pcPack.php');
+			}
+			
 		</script>
 		
 <!-- Continuation of HTML code -->
@@ -682,8 +686,8 @@ $conn->close();
 		<body onLoad="addProduct()">
 		<div id="navBar">
 			<div id="title">Computer Database App</div>
-			<button type="button" onClick="" id="productSide">Products</button>
-			<button type="button" onClick="" id="packageSide">PC Packages</button>
+			<button type="button" disabled onClick="" id="productSide">Products</button>
+			<button type="button" onClick="redirPackage()" id="packageSide">PC Packages</button>
 		</div>
 		<div id="tableBG"><?php echo($buffer); ?></div>
 		<div id="cr">© Topias Laitinen 2022</div>

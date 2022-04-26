@@ -38,18 +38,23 @@ body{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	
-	cursor: pointer;
 	transition: 0.2s ease-in-out;
 }
 
-#productSide:hover {
+#productSide {
 	background-color: rgba(70,70,70,1);
 	color: rgba(120,60,180,1);
+	cursor: not-allowed;
+}
+
+:disabled {
+	opacity: 0.8;
 }
 
 #packageSide:hover {
 	background-color: rgba(70,70,70,1);
 	color: rgba(120,60,180,1);
+	cursor: pointer;
 }
 
 #title{

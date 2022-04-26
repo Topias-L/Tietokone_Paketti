@@ -1,0 +1,41 @@
+/*
+body > *{
+	outline: 1px solid #f00;
+}
+*/
+
+body{
+	background-image: url(../page_BG.png);
+	margin: 0px;
+}
+
+#title{
+	position: relative;
+	width: 700px;
+	margin-left: 20px;
+	display: inline-block;
+	
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 45px;
+	font-weight: bold;
+	
+	text-shadow: 3px 3px rgba(80,80,80,1);
+}
+
+#cr{
+	position: absolute;
+	top: 880px;
+	left: 10px;
+	
+	color: gray;
+	font-family: 'Montserrat', sans-serif;
+}
+
+input[type=text] {
+	width: 110px;
+}
+
+input[type=submit] {
+	margin-top: 10px;
+}
