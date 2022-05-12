@@ -30,19 +30,6 @@ if ($result->num_rows > 0) {
 	$buffer .= '<table class="paketitTable">';
 	$buffer .= "<tr>";
 	
-// Building the top of the table
-	
-	$buffer .= '<td class="ctr"><b>ID</b></td>
-		<td class="ctr"><b>Emolevy ID</b></td>
-		<td class="ctr"><b>Prosessori ID</b></td>
-		<td class="ctr"><b>Virtalähde ID</b></td>
-		<td class="ctr"><b>Muisti ID</b></td>
-		<td class="ctr"><b>Näytönohjain ID</b></td>
-		<td class="ctr"><b>Levy ID</b></td>
-		<td class="ctr"><b>Kotelo ID</b></td>';
-		
-	$buffer .= "</tr>";
-	
 // Getting the package information
 	
 	while($row = $result->fetch_assoc()) {
@@ -51,6 +38,19 @@ if ($result->num_rows > 0) {
 		
 // Gathering package information
 		
+		// Building the top of the table
+	
+		$buffer .= '<td class="ctr"><b>ID</b></td>
+			<td class="ctr"><b>Mobo ID</b></td>
+			<td class="ctr"><b>CPU ID</b></td>
+			<td class="ctr"><b>PSU ID</b></td>
+			<td class="ctr"><b>RAM ID</b></td>
+			<td class="ctr"><b>GPU ID</b></td>
+			<td class="ctr"><b>Storage ID</b></td>
+			<td class="ctr"><b>Case ID</b></td>';
+			
+		$buffer .= "</tr>";
+
 		$buffer .= '<td class="ctr" name="id">'. $row["id"].
 			'</td><td class="ctr">'. $row["mb_id"].
 			'</td><td class="ctr">'. $row["cpu_id"].
@@ -65,10 +65,55 @@ if ($result->num_rows > 0) {
 		$buffer .= '<td style="width:30px"><button type="button" class="editBTN '. $counter . '">🛠</button></td>';
 		$buffer .= '<td style="width:30px"><button type="button" onClick = "deleteConfirmation('. $counter .')" class="delBTN '. $counter . '">🗙</button></td>';
 		$buffer .= "</tr>";
+	
+		$buffer .= '<td class="ctr"><b></b></td>
+			<td class="ctr"><b>Mobo Model</b></td>
+			<td class="ctr"><b>CPU Model</b></td>
+			<td class="ctr"><b>PSU Model</b></td>
+			<td class="ctr"><b>RAM Model</b></td>
+			<td class="ctr"><b>GPU Model</b></td>
+			<td class="ctr"><b>Storage Model</b></td>
+			<td class="ctr"><b>Case Model</b></td>';
+			
+		$buffer .= "</tr>";
+		
+		$mb_mdl = $conn->query("SELECT malli FROM emolevyt WHERE id = ".$row['mb_id']." ");
+		$mb_mdl = mysqli_fetch_array($mb_mdl)[0];
+		
+		$cpu_mdl = $conn->query("SELECT malli FROM prosessorit WHERE id = ".$row['cpu_id']." ");
+		$cpu_mdl = mysqli_fetch_array($cpu_mdl)[0];
+		
+		$pwr_mdl = $conn->query("SELECT malli FROM powerit WHERE id = ".$row['pwr_id']." ");
+		$pwr_mdl = mysqli_fetch_array($pwr_mdl)[0];
+		
+		$ram_mdl = $conn->query("SELECT malli FROM muistit WHERE id = ".$row['ram_id']." ");
+		$ram_mdl = mysqli_fetch_array($ram_mdl)[0];
+		
+		$gpu_mdl = $conn->query("SELECT malli FROM naytonohjaimet WHERE id = ".$row['gpu_id']." ");
+		$gpu_mdl = mysqli_fetch_array($gpu_mdl)[0];
+		
+		$strg_mdl = $conn->query("SELECT malli FROM levyt WHERE id = ".$row['strg_id']." ");
+		$strg_mdl = mysqli_fetch_array($strg_mdl)[0];
+		
+		$case_mdl = $conn->query("SELECT malli FROM kotelot WHERE id = ".$row['case_id']." ");
+		$case_mdl = mysqli_fetch_array($case_mdl)[0];
+		
+		$buffer .= '<td>'.
+			'</td><td class="ctr">'. $mb_mdl.
+			'</td><td class="ctr">'. $cpu_mdl.
+			'</td><td class="ctr">'. $pwr_mdl.
+			'</td><td class="ctr">'. $ram_mdl.
+			'</td><td class="ctr">'. $gpu_mdl. 
+			'</td><td class="ctr">'. $strg_mdl. 
+			'</td><td class="ctr">'. $case_mdl;
+		
+		$buffer .= "</tr>";
+		
+		$buffer .= "<tr class='spacer'></tr>";
+		
 		$counter++;
 	}
-	
-	$buffer .= "</tr>";
+
 	$buffer .= "</table>";
 	
 } else {

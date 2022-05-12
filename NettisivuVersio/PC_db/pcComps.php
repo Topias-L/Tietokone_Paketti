@@ -700,7 +700,7 @@ $conn->close();
 			<br>After that, press the "Search" button, and the table on the right will update.
 			<br>
 			<br>Note: The table does become scrollable after it reaches a certain height.</div>
-			<form name="searchForm" method="GET" action="index.php">
+			<form name="searchForm" method="GET" action="pcComps.php">
 				<select id="tuotteet" name="search">
 				<option value="emolevyt">Motherboards</option>
 				<option value="prosessorit">CPU:s</option>
